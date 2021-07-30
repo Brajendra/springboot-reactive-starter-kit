@@ -34,9 +34,6 @@ public class AuthServiceImpl implements AuthService, ReactiveUserDetailsService 
                 .map(UserMapper.INSTANCE::toDTO);
     }
 
-    public Mono<Boolean> isUserExits() {
-
-    }
 
     @Override
     public Mono<String> login(String username, String password) {
