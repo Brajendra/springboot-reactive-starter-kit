@@ -38,7 +38,6 @@ public class AuthServiceImpl implements AuthService {
                 .map(UserMapper.INSTANCE::toDTO);
     }
 
-
     @Override
     public Mono<ResponseDto> login(String email, String password) {
         return userRepository.findByEmail(email)
