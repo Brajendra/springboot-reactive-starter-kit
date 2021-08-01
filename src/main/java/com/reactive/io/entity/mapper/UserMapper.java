@@ -4,6 +4,7 @@ import com.reactive.io.entity.dto.UserDto;
 import com.reactive.io.entity.enums.UserRoles;
 import com.reactive.io.entity.model.User;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -15,6 +16,7 @@ public interface UserMapper {
 
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
+    @Mapping(target = "password", ignore = true)
     UserDto toDTO(final User user);
 
     User fromDTO(final UserDto userDto);

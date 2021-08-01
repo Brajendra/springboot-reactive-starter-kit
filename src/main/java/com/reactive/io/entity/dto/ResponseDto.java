@@ -15,6 +15,5 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ResponseDto {
 
-    private Integer code;
     private Object data;
 }

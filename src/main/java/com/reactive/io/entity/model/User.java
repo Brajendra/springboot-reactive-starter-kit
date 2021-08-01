@@ -23,12 +23,11 @@ import java.util.Collections;
 public class User implements UserDetails {
     @Id
     private String id;
-    @Indexed(background = true, unique = true)
-    private String username;
     private String password;
     private String firstName;
     private String lastName;
     private String phone;
+    @Indexed(background = true, unique = true)
     private String email;
     private UserRoles role;
     private boolean active = true;
@@ -44,7 +43,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return email;
     }
 
     @Override

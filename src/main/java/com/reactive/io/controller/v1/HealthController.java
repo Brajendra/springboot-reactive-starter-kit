@@ -9,10 +9,8 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/health")
 public class HealthController {
 
-    private final String UP = "UP";
-
     @GetMapping
     public Mono<String> check() {
-        return Mono.just(UP);
+        return Mono.just("UP");
     }
 }
