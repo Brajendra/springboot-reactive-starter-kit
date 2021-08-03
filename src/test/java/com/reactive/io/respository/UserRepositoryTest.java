@@ -22,7 +22,7 @@ public class UserRepositoryTest {
 
     @Autowired
     private UserRepository repository;
-    
+
     @Test
     public void testShouldSaveSingleUser() {
         User user = User.builder()
