@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-import javax.annotation.PostConstruct;
+import java.awt.*;
 import java.security.Key;
 import java.time.Duration;
 import java.time.Instant;
@@ -32,13 +32,8 @@ public class JWTUtil {
 
     public static final String KEY_ROLE = "role";
 
-    @PostConstruct
-    public void init(){
-        this.key = Keys.hmacShaKeyFor(secret.getBytes());
-    }
-
     public Mono<Claims> getAllClaimsFromToken(String token) {
-        return Mono.just(Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody());
+        return Mono.just(Jwts.parserBuilder().setSigningKey(getKey()).build().parseClaimsJws(token).getBody());
     }
 
     public String generateToken(UserDetails userDetails) {
@@ -51,12 +46,18 @@ public class JWTUtil {
                 .setSubject(userDetails.getUsername())
                 .setExpiration(Date.from(Instant.now().plus(Duration.ofHours(expirationTimeInHour))))
                 .setIssuedAt(Date.from(Instant.now()))
-                .signWith(key)
+                .signWith(getKey())
                 .compact();
     }
 
     public Mono<Boolean> validateToken(String token) {
         return getAllClaimsFromToken(token).map(Claims::getExpiration)
                 .map(expiration -> expiration.after(new Date()));
+    }
+
+    private Key getKey() {
+        if (key == null)
+            key = Keys.hmacShaKeyFor(secret.getBytes());
+        return key;
     }
 }

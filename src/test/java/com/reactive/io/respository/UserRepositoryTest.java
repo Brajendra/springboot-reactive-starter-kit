@@ -24,7 +24,7 @@ public class UserRepositoryTest {
     private UserRepository repository;
 
     @Test
-    public void testShouldSaveSingleUser() {
+    public void shouldSaveSingleUser() {
         User user = User.builder()
                 .firstName("firstName")
                 .lastName("lastName")
@@ -42,7 +42,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    public void testShouldSaveTwoUser() {
+    public void shouldSaveTwoUser() {
         User user = User.builder()
                 .firstName("firstName")
                 .lastName("lastName")
@@ -69,7 +69,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    public void testShouldSaveUser() {
+    public void shouldSaveUser() {
         String TEST_EMAIL = "test@gmail.com";
         User user = User.builder()
                 .firstName("firstName")
@@ -97,7 +97,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    public void testShouldFindUserByEmail() {
+    public void shouldFindUserByEmail() {
         String TEST_EMAIL = "test@gmail.com";
         User user = User.builder()
                 .firstName("firstName")
@@ -120,7 +120,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    public void testShouldFindUserByEmailFail() {
+    public void shouldFindUserByEmailFail() {
         String TEST_EMAIL = "test@gmail.com";
         User user = User.builder()
                 .firstName("firstName")
@@ -143,7 +143,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    public void testShouldFindByEmail() {
+    public void shouldFindByEmail() {
         String TEST_EMAIL = "test@gmail.com";
         User user = User.builder()
                 .firstName("firstName")
@@ -166,7 +166,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    public void testShouldFindByEmailFail() {
+    public void shouldFindByEmailFail() {
         String TEST_EMAIL = "test@gmail.com";
         User user = User.builder()
                 .firstName("firstName")

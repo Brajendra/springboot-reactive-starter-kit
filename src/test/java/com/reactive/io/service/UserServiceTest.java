@@ -15,7 +15,6 @@ import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)
@@ -26,7 +25,7 @@ public class UserServiceTest {
 
     @Mock
     private UserRepository userRepository;
-    private String TEST_EMAIL = "test@gmail.com";
+    private String TEST_EMAIL = "test@ask-fast.com";
 
     @Test
     public void shouldGetUser() {
