@@ -41,7 +41,7 @@ public class JWTUtilTest {
     @Test
     public void shouldGenerateTokenAndVerifyClaims() {
 
-        String TEST_EMAIL = "test@ask-fast.com";
+        String TEST_EMAIL = "test@gmail.com";
         UserDetails userDetails = User.builder()
                 .id("id")
                 .firstName("firstName")
@@ -73,7 +73,7 @@ public class JWTUtilTest {
         claims.put("role", "ADMIN");
         String token = Jwts.builder()
                 .setClaims(claims)
-                .setSubject("test@ask-fast.com")
+                .setSubject("test@gmail.com")
                 .setExpiration(Date.from(Instant.now().plus(Duration.ofHours(1))))
                 .setIssuedAt(Date.from(Instant.now()))
                 .signWith(key)

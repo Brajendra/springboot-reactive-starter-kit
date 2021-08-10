@@ -30,7 +30,7 @@ public class SecurityContextRepository implements ServerSecurityContextRepositor
                 .filter(token -> token != null && token.startsWith(AUTH_TOKEN_PREFIX))
                 .map(token -> token.substring(AUTH_TOKEN_PREFIX.length()))
                 .map(authToken -> new UsernamePasswordAuthenticationToken(authToken, authToken))
-                .flatMap(auth -> authenticationManager.authenticate(auth))
+                .flatMap(authenticationManager::authenticate)
                 .map(SecurityContextImpl::new);
     }
 }

@@ -11,6 +11,7 @@ import reactor.core.publisher.Mono;
 
 @EnableWebFluxSecurity
 public class SecurityConfig {
+
     private static final String[] WHITELISTED_AUTH_URLS = {
             "/auth/v1/signup","/auth/v1/login", "/webjars/**", "/v3/api-docs/**",
     };

@@ -41,7 +41,7 @@ public class AuthServiceTest {
     @Mock
     private JWTUtil jwtUtil;
 
-    private String TEST_EMAIL = "test@ask-fast.com";
+    private final String TEST_EMAIL = "test@gmail.com";
 
     @Test
     public void shouldSignup() {
