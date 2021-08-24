@@ -49,7 +49,6 @@ public class UserServiceTest {
                 .verifyComplete();
     }
 
-
     @Test
     public void shouldGetUserNotFound() {
         when(userRepository.findUserByEmail(TEST_EMAIL)).thenReturn(Mono.empty());

@@ -14,7 +14,9 @@ import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DataMongoTest
 @ExtendWith(SpringExtension.class)
@@ -92,6 +94,10 @@ public class UserRepositoryTest {
                     assertEquals(account.getEmail(), TEST_EMAIL);
                     assertEquals(account.getFirstName(), "firstName");
                     assertEquals(account.getLastName(), "lastName");
+                    assertFalse(account.isAccountNonExpired());
+                    assertFalse(account.isAccountNonLocked());
+                    assertFalse(account.isCredentialsNonExpired());
+                    assertFalse(account.isEnabled());
                 })
                 .verifyComplete();
     }

@@ -32,10 +32,6 @@ public class User implements UserDetails {
     private UserRoles role;
     private boolean active = true;
 
-    public String getFullName() {
-        return firstName != null ? firstName.concat(" ").concat(lastName) : "";
-    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singletonList(new SimpleGrantedAuthority(role.name()));
